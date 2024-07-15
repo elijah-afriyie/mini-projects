@@ -1,1 +1,0 @@
-How would you create a custom frame using Java Swing, similar to the example provided? Include steps like setting the frame title, defining the default close operation, preventing resizing, setting an icon, and specifying a background color for the frame's content pane.
