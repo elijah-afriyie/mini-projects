@@ -10,6 +10,8 @@ public class DragPanel extends JPanel {
 
   // Load the image to be dragged
   ImageIcon image = new ImageIcon("image.png");
+  
+  // Store the width and height of the image
   final int WIDTH = image.getIconWidth();
   final int HEIGHT = image.getIconHeight();
 
