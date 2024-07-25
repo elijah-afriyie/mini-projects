@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
@@ -15,9 +16,10 @@ public class MyFrame extends JFrame implements KeyListener {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setSize(500, 500);
     this.setLayout(null);
+    this.getContentPane().setBackground(Color.BLACK);
     this.addKeyListener(this);
 
-    ImageIcon icon = new ImageIcon("shuttle.png");
+    ImageIcon icon = new ImageIcon("ship.png");
 
     label = new JLabel("Basic Shuttle Game");
     label.setBounds(0, 0, 128, 128);
