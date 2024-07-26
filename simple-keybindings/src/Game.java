@@ -29,7 +29,7 @@ public class Game {
     frame = new JFrame("Key Binding Ninja");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(420, 420);
-    frame.setLayout(null);
+    frame.setLayout(null); // Use null layout for absolute positioning
 
     // Set up the label with the image icon
     label = new JLabel();
@@ -97,10 +97,5 @@ public class Game {
     public void actionPerformed(ActionEvent e) {
       label.setLocation(label.getX() + 10, label.getY()); // Move the label right by 10 pixels
     }
-  }
-
-  // Main method to run the game
-  public static void main(String[] args) {
-    new Game(); // Create an instance of the Game class
   }
 }

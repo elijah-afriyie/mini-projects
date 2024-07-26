@@ -6,11 +6,14 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+/**
+ * DragPanel class that allows dragging an image across the panel.
+ */
 public class DragPanel extends JPanel {
 
   // Load the image to be dragged
   ImageIcon image = new ImageIcon("image.png");
-  
+
   // Store the width and height of the image
   final int WIDTH = image.getIconWidth();
   final int HEIGHT = image.getIconHeight();
@@ -21,7 +24,10 @@ public class DragPanel extends JPanel {
 
   // Constructor to initialize the panel and add listeners
   DragPanel() {
+    // Initial position of the image
     imageCorner = new Point(0, 0);
+
+    // Instantiate listener classes
     ClickListener clickListener = new ClickListener();
     DragListener dragListener = new DragListener();
 
@@ -35,6 +41,7 @@ public class DragPanel extends JPanel {
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    // Draw the image at its current position
     image.paintIcon(
       this,
       g,
@@ -49,7 +56,8 @@ public class DragPanel extends JPanel {
     @Override
     public void mousePressed(MouseEvent e) {
       System.out.println("Mouse Pressed");
-      prevPt = e.getPoint(); // Capture the point where the mouse is pressed
+      // Capture the point where the mouse is pressed
+      prevPt = e.getPoint();
     }
   }
 
@@ -59,14 +67,17 @@ public class DragPanel extends JPanel {
     @Override
     public void mouseDragged(MouseEvent e) {
       System.out.println("Mouse Dragged");
-      Point currentPt = e.getPoint(); // Capture the current mouse position
+      // Capture the current mouse position
+      Point currentPt = e.getPoint();
       // Update the position of the image
       imageCorner.translate(
         (int) (currentPt.getX() - prevPt.getX()),
         (int) (currentPt.getY() - prevPt.getY())
       );
-      prevPt = currentPt; // Update the previous point to the current point
-      repaint(); // Repaint the panel to reflect the new image position
+      // Update the previous point to the current point
+      prevPt = currentPt;
+      // Repaint the panel to reflect the new image position
+      repaint();
     }
   }
 }

@@ -14,7 +14,6 @@ import javax.swing.JMenuItem;
  * This class creates a JFrame window with a menu bar containing
  * File, Edit, and Help menus. Each menu has menu items with icons.
  */
-
 public class MyFrame extends JFrame implements ActionListener {
 
   JMenu fileMenu;
@@ -45,7 +44,7 @@ public class MyFrame extends JFrame implements ActionListener {
     editMenu = new JMenu("Edit");
     helpMenu = new JMenu("Help");
 
-    // Add menu items to the File menu
+    // Add menus to the menu bar
     menuBar.add(fileMenu);
     menuBar.add(editMenu);
     menuBar.add(helpMenu);
@@ -60,27 +59,27 @@ public class MyFrame extends JFrame implements ActionListener {
     saveItem.addActionListener(this);
     exitItem.addActionListener(this);
 
-    // Add Mnemonic to the file menu
-    fileMenu.setMnemonic(KeyEvent.VK_F); // Alt + f for load
-    editMenu.setMnemonic(KeyEvent.VK_E); // Alt + e for edit
-    helpMenu.setMnemonic(KeyEvent.VK_H); // Alt + h for help
+    // Add Mnemonics to the menus
+    fileMenu.setMnemonic(KeyEvent.VK_F); // Alt + F for File
+    editMenu.setMnemonic(KeyEvent.VK_E); // Alt + E for Edit
+    helpMenu.setMnemonic(KeyEvent.VK_H); // Alt + H for Help
 
-    // Add Mnemonic to the menu items
-    openItem.setMnemonic(KeyEvent.VK_O); // o for open
-    saveItem.setMnemonic(KeyEvent.VK_S); // s for save
-    exitItem.setMnemonic(KeyEvent.VK_X); // x for exit
-
-    // Add menu items to the File menu
-    fileMenu.add(openItem);
-    fileMenu.add(saveItem);
-    fileMenu.add(exitItem);
+    // Add Mnemonics to the menu items
+    openItem.setMnemonic(KeyEvent.VK_O); // O for Open
+    saveItem.setMnemonic(KeyEvent.VK_S); // S for Save
+    exitItem.setMnemonic(KeyEvent.VK_X); // X for Exit
 
     // Set icons for the menu items
     openItem.setIcon(openIcon);
     saveItem.setIcon(saveIcon);
     exitItem.setIcon(exitIcon);
 
-    // Add the menu items to the JFrame
+    // Add menu items to the File menu
+    fileMenu.add(openItem);
+    fileMenu.add(saveItem);
+    fileMenu.add(exitItem);
+
+    // Add the menu bar to the JFrame
     this.setJMenuBar(menuBar);
     this.setVisible(true);
   }
@@ -99,6 +98,7 @@ public class MyFrame extends JFrame implements ActionListener {
     return new ImageIcon(resizedImage);
   }
 
+  // Override actionPerformed to handle menu item click events
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == openItem) {
